@@ -1,0 +1,74 @@
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .dark ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    .dark ::-webkit-scrollbar-thumb {
+      background: #334155;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    /* Pulse wave animation for fluid flow */
+    @keyframes flowRight {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(200%); }
+    }
+    @keyframes flowLeft {
+      0% { transform: translateX(200%); }
+      100% { transform: translateX(-100%); }
+    }
+    .animate-flow-right {
+      animation: flowRight 2s linear infinite;
+    }
+    .animate-flow-left {
+      animation: flowLeft 2s linear infinite;
+    }
+
+    /* ===== Responsive additions ===== */
+    img, video, canvas, svg { max-width: 100%; }
+    img { height: auto; }
+    input, select, textarea { max-width: 100%; box-sizing: border-box; }
+    body { overflow-wrap: break-word; }
+    .katex-display { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+    .overflow-x-auto { -webkit-overflow-scrolling: touch; }
+    #floating-chat-window { max-width: calc(100vw - 2rem); }
+
+    @media (max-width: 1024px) {
+      header nav { flex-wrap: wrap; }
+      main .grid.md\:grid-cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 768px) {
+      header > div > div.flex.justify-between { height: auto; flex-wrap: wrap; gap: 0.75rem; padding: 0.75rem 0; }
+      header nav { width: 100%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      header nav .tab-btn { justify-content: center; min-height: 44px; font-size: 14px; }
+      main { padding-top: 1.25rem; padding-bottom: 1.25rem; }
+      main h1, main h2 { font-size: clamp(22px, 6vw, 28px); line-height: 1.3; word-break: keep-all; }
+      main p, main li { font-size: 14px; word-break: keep-all; }
+      main button, main select, main input:not([type=range]):not([type=checkbox]):not([type=radio]) { min-height: 44px; font-size: 16px; }
+      main input[type=range] { min-height: 28px; width: 100%; }
+      main textarea { font-size: 16px; width: 100%; }
+      main table { font-size: 12px; }
+      main .h-56, main .h-52 { height: 15rem; }
+      #floating-chat-container { bottom: 1rem; right: 1rem; }
+    }
+    @media (max-width: 480px) {
+      header .max-w-7xl, main, footer > div { padding-left: 12px; padding-right: 12px; }
+      header nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      header nav .tab-btn:last-child:nth-child(odd) { grid-column: 1 / -1; }
+      main .p-8, main .p-6 { padding: 1rem; }
+      main .flex.gap-2 > button, main .flex.gap-3 > button { flex: 1 1 100%; }
+      #floating-chat-window { width: calc(100vw - 2rem); }
+      #floating-chat-container { right: 0.75rem; }
+    }
